@@ -45,11 +45,14 @@ GOOGLE_GENERATIVE_AI_API_KEY=your_api_key_here
 
 ⚠️ Important: Never share your API key publicly.
 
-### 5️⃣ Run the Flask app
+### 5️⃣ Run the model trainer
+python train_model.py
+
+### Run the app
 python app.py
 
 The app will start at:  
-http://127.0.0.1:5000/
+http://127.0.0.1:5000/  (Ctrl + click to open the webpage)
 
 ---
 
@@ -74,11 +77,17 @@ Model confidence: 82.35%
 
 Summary:
 Dependents: 1
+
 Education: Graduate
+
 Self Employed: No
+
 Annual Income: ₹ 850,000
+
 Loan Amount: ₹ 200,000
-Loan Term: 60 months
+
+Loan Term: 24 months
+
 CIBIL Score: 780
 
 Gemini Insights:
@@ -96,13 +105,20 @@ Hi Jane Smith, here’s your result.
 Model confidence: 35.12%
 
 Summary:
+
 Dependents: 3
+
 Education: Not Graduate
+
 Self Employed: Yes
+
 Annual Income: ₹ 300,000
+
 Loan Amount: ₹ 500,000
+
 Loan Term: 36 months
-CIBIL Score: 550
+
+CIBIL Score: 400
 
 Gemini Insights:
 1. State Bank of India – Offers secured loans for low credit scores.
