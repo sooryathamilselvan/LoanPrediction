@@ -8,25 +8,6 @@ The app:
 - Predicts whether the loan will likely be approved or rejected using a trained ML model.
 - Generates **personalized bank recommendations** using Google's Gemini AI API.
 
----
-
-## 📂 Project Structure
-
-.
-├── app.py                      # Main Flask app
-├── models/
-│   └── loan_approval_model.pkl # Trained ML model pipeline
-├── templates/
-│   ├── index.html              # Input form page
-│   └── result.html             # Results display page
-├── static/
-│   └── css/styles.css          # Stylesheet
-├── requirements.txt            # Python dependencies
-├── .env                        # Environment variables (API key)
-└── README.md                   # Documentation
-
----
-
 ## 🚀 Features
 - **Loan Approval Prediction** using ML model.
 - **Confidence score** for prediction.
