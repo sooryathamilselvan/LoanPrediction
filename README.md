@@ -28,8 +28,7 @@ cd <your-repo-folder>
 # Create venv
 python -m venv venv
 
-# Activate venv
-# On Windows
+# Activate venv on Windows
 venv\Scripts\activate
 
 # On Mac/Linux
@@ -37,6 +36,7 @@ source venv/bin/activate
 
 ### 3️⃣ Install dependencies
 pip install --upgrade pip
+
 pip install -r requirements.txt
 
 ### 4️⃣ Set up environment variables
