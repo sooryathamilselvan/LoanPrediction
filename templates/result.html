@@ -1,0 +1,69 @@
+<!-- templates/result.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Prediction Result</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Loan Approval Result</h1>
+      <p class="subtitle">Hi {{ full_name }}, here’s your result.</p>
+    </header>
+
+    <div class="card result">
+      {% if approved %}
+        <div class="status ok">✅ Likely Approved</div>
+      {% else %}
+        <div class="status no">❌ Likely Rejected</div>
+      {% endif %}
+      <p class="prob">Model confidence: <b>{{ probability }}%</b></p>
+
+      <h3>Summary</h3>
+      <ul class="kv">
+        <li><span>Dependents</span><b>{{ details.no_of_dependents }}</b></li>
+        <li><span>Education</span><b>{{ details.education }}</b></li>
+        <li><span>Self Employed</span><b>{{ details.self_employed }}</b></li>
+        <li><span>Annual Income</span><b>₹ {{ "{:,.0f}".format(details.income_annum) }}</b></li>
+        <li><span>Loan Amount</span><b>₹ {{ "{:,.0f}".format(details.loan_amount) }}</b></li>
+        <li><span>Loan Term</span><b>{{ details.loan_term }} months</b></li>
+        <li><span>CIBIL Score</span><b>{{ details.cibil_score }}</b></li>
+      </ul>
+
+      <!-- Gemini AI Insights Card -->
+      {% if gemini_insight %}
+      <div class="gemini-card">
+        <h3>🔍 Gemini Insights</h3>
+        <p>{{ gemini_insight | safe }}</p>
+      </div>
+      {% endif %}
+
+      <div class="actions">
+        <a href="/" class="btn">Back to form</a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .gemini-card {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: #f4f9ff;
+      border: 1px solid #cfe4ff;
+    }
+    .gemini-card h3 {
+      margin-top: 0;
+      color: #0056b3;
+    }
+    .gemini-card p {
+      margin: 0;
+      color: #333;
+      white-space: pre-wrap; /* preserve newlines from Gemini's response */
+    }
+  </style>
+</body>
+</html>

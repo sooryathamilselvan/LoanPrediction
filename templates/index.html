@@ -1,0 +1,154 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Loan Approval Predictor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Loan Approval Predictor</h1>
+      <p class="subtitle">Get instant predictions on your approval chances.</p>
+    </header>
+
+    <form class="card" action="/predict" method="post" id="loanForm">
+      <!-- Personal Information -->
+      <section>
+        <h2>Personal Information</h2>
+        <div class="grid">
+          <div class="field">
+            <label>Full Name *</label>
+            <input name="full_name" type="text" placeholder="Enter your full name" required>
+          </div>
+          <div class="field">
+            <label>Age</label>
+            <input name="age" type="number" min="18" max="100" placeholder="Enter your age">
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <select name="gender">
+              <option value="">Select gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Marital Status</label>
+            <select name="marital_status">
+              <option value="">Select marital status</option>
+              <option>Single</option>
+              <option>Married</option>
+              <option>Divorced</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Number of Dependents *</label>
+            <select name="dependents" required>
+              <option value="">Select dependents</option>
+              <option>0</option><option>1</option><option>2</option>
+              <option>3</option><option>4</option><option>5</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Education Level *</label>
+            <select name="education" required>
+              <option value="">Select education level</option>
+              <option>Graduate</option>
+              <option>Not Graduate</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Employment & Financial Information -->
+      <section>
+        <h2>Employment & Financial Information</h2>
+        <div class="grid">
+          <div class="field">
+            <label>Employment Type *</label>
+            <select name="employment_type" required>
+              <option value="">Select employment type</option>
+              <option>Private</option>
+              <option>Government</option>
+              <option>Business</option>
+              <option>Freelancer</option>
+              <option>Student</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Self Employed? *</label>
+            <select name="self_employed" required>
+              <option value="">Select</option>
+              <option>No</option>
+              <option>Yes</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Monthly Income (₹) *</label>
+            <input name="monthly_income" type="number" min="0" step="100" placeholder="e.g. 50000" required>
+            <small>We’ll convert to annual automatically.</small>
+          </div>
+          <div class="field">
+            <label>Co-applicant Income (₹)</label>
+            <input name="coapp_income" type="number" min="0" step="100" placeholder="Optional">
+          </div>
+          <div class="field">
+            <label>CIBIL Score (300–900) *</label>
+            <input name="cibil_score" type="number" min="300" max="900" step="1" required>
+          </div>
+          <div class="field">
+            <label>Existing Loans (₹)</label>
+            <input name="existing_loans" type="number" min="0" step="1000" placeholder="Optional">
+          </div>
+        </div>
+      </section>
+
+      <!-- Loan Details -->
+      <section>
+        <h2>Loan Details</h2>
+        <div class="grid">
+          <div class="field">
+            <label>Loan Amount (₹) *</label>
+            <input name="loan_amount" type="number" min="10000" step="1000" required>
+          </div>
+          <div class="field">
+            <label>Loan Term (months) *</label>
+            <select name="loan_term" required>
+              <option value="">Select term</option>
+              <option>6</option><option>12</option><option>24</option>
+              <option>36</option><option>48</option><option>60</option>
+              <option>84</option><option>120</option><option>180</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Loan Purpose</label>
+            <select name="loan_purpose">
+              <option value="">Select purpose</option>
+              <option>Home</option><option>Vehicle</option>
+              <option>Education</option><option>Business</option>
+              <option>Personal</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Property Area</label>
+            <select name="property_area">
+              <option value="">Select area</option>
+              <option>Urban</option><option>Semiurban</option><option>Rural</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="submit">Get Loan Prediction</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
